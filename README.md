@@ -70,21 +70,32 @@ III. CSDL CỦA HỆ THỐNG ĐẶT VÉ XEM PHIM ONLINE
 ## BÀI LÀM
 ### Bổ xung thêm 1 (hoặc vài) trường phi chuẩn.
 1. Khái niệm trường phi chuẩn: Là trường có thể tính toán ra được từ các trường khác, nhưng bạn vẫn chủ động lưu nó vào bảng để tăng tốc truy vấn hoặc phục vụ một mục đích cụ thể.
-2. Thêm trường phi chuẩn cho bảng **Đặt_Vé**
-![image](https://github.com/user-attachments/assets/fd944a17-468e-40f5-a9b6-c8779bafba38)
+2. Thêm trường phi chuẩn cho bảng **Suất_Chiếu**
+![image](https://github.com/user-attachments/assets/f2df226c-d780-4f36-9e8b-cf39ab29d370)
 
-- 2.1. Tại sao lại thêm trường phi chuẩn giờ kết thúc? Tại vì khi đặt vé, chọn suất chiếu, hệ thống sẽ biết giờ bắt đầu chiếu và thời lượng phim -> Dễ dàng tính được giờ kết thúc:
-+ giờ kết thúc = giờ bắt đầu chiếu + thời lượng phim.
+- 2.1. Tại sao lại thêm trường phi chuẩn doanh thu? Tại vì khi đặt vé, chọn suất chiếu, nếu hệ thống có nhiều vé, việc tính tổng mỗi lần truy vấn (SUM(Đặt_Vé.tong_tien) GROUP BY ma_chieu) sẽ rất tốn tài nguyên. Việc lưu sẵn doanh_thu giúp đọc nhanh hơn.
+
 + Thay vì phải tính lại thủ công khi cần, ta lưu luôn trường giờ kết thúc để tiết kiệm thời gian truy vấn, dễ dàng lọc suất còn trống, tránh trùng lịch chiếu khi cần.
 
 - 2.2. Sử dụng lệnh để tiến hành thêm thay vì thêm thủ công.
-![Untitled](https://github.com/user-attachments/assets/f48fede4-8756-479e-83d1-3bb984511090)
+![image](https://github.com/user-attachments/assets/fd9f7ac3-7653-40af-8bbf-14516dd7c781)
 
 3. Nhập thông tin demo cho các bảng
 - 3.1. Bảng Nguoi_Dung
 ![image](https://github.com/user-attachments/assets/c7093143-c48d-45e7-81ba-a21df04f7a07)
 
 - 3.2. Bảng Phim
-![Untitled](https://github.com/user-attachments/assets/3ce31596-1406-4c4b-a6ab-5ab88f86d4b7)
+![Untitled](https://github.com/user-attachments/assets/54899bbc-7b2b-4b32-8fd8-d3111255608d)
 
 - 3.3. Bảng Rạp_Phim
+![Untitled](https://github.com/user-attachments/assets/41228de7-4a34-4ec0-89f1-25f6cc764142)
+
+- 3.4. Bảng Suất_Chiếu
+![Untitled](https://github.com/user-attachments/assets/5a0c8567-a4bd-4c66-8759-ac95f3a62e0b)
+
+- 3.5. Bảng Đặt_Vé
+![Untitled](https://github.com/user-attachments/assets/5e184700-f420-405a-b568-4142aefe7a87)
+
+4. Viết TRIGGER cho Bảng Đặt_Vé
+
+
