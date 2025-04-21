@@ -47,12 +47,6 @@ III. CSDL CỦA HỆ THỐNG ĐẶT VÉ XEM PHIM ONLINE
 - 2.2.2. BẢNG *ĐẶT_VÉ* LIÊN KẾT VỚI BẢNG *SUẤT_CHIẾU* QUA THUỘC TÍNH **ma_chieu** ( tại BẢNG SUẤT_CHIẾU thì ma_chieu là khoá chính, ĐẶT_VÉ thì là khoá ngoại ).
 ![image](https://github.com/user-attachments/assets/53136558-ddda-4801-b3e4-19eefefbc770)
 
-3. THIẾT LẬP RÀNG BUỘC CK CHO CÁC THUỘC TÍNH TRONG BẢNG
-- 3.1. BẢNG *Suất_Chiếu*
-
-- 3.2. BẢNG *Đặt_Vé*
-
-
 # B. Nội dung Bài tập 05:
 1. Dựa trên cơ sở là csdl của Đồ án
 2. Tìm cách bổ xung thêm 1 (hoặc vài) trường phi chuẩn
@@ -67,10 +61,10 @@ III. CSDL CỦA HỆ THỐNG ĐẶT VÉ XEM PHIM ONLINE
    nhằm để test sự hiệu quả của việc trigger auto run.
 5. Kết luận về Trigger đã giúp gì cho đồ án của em.
 
-## BÀI LÀM
-### Bổ xung thêm 1 (hoặc vài) trường phi chuẩn.
-1. Khái niệm trường phi chuẩn: Là trường có thể tính toán ra được từ các trường khác, nhưng bạn vẫn chủ động lưu nó vào bảng để tăng tốc truy vấn hoặc phục vụ một mục đích cụ thể.
-2. Thêm trường phi chuẩn cho bảng **Suất_Chiếu**
+# BÀI LÀM
+## Bổ xung thêm 1 (hoặc vài) trường phi chuẩn.
+### 1. Khái niệm trường phi chuẩn: Là trường có thể tính toán ra được từ các trường khác, nhưng bạn vẫn chủ động lưu nó vào bảng để tăng tốc truy vấn hoặc phục vụ một mục đích cụ thể.
+### 2. Thêm trường phi chuẩn cho bảng **Suất_Chiếu**
 ![image](https://github.com/user-attachments/assets/f2df226c-d780-4f36-9e8b-cf39ab29d370)
 
 - 2.1. Tại sao lại thêm trường phi chuẩn doanh thu? Tại vì khi đặt vé, chọn suất chiếu, nếu hệ thống có nhiều vé, việc tính tổng mỗi lần truy vấn (SUM(Đặt_Vé.tong_tien) GROUP BY ma_chieu) sẽ rất tốn tài nguyên. Việc lưu sẵn doanh_thu giúp đọc nhanh hơn.
@@ -80,7 +74,7 @@ III. CSDL CỦA HỆ THỐNG ĐẶT VÉ XEM PHIM ONLINE
 - 2.2. Sử dụng lệnh để tiến hành thêm thay vì thêm thủ công.
 ![image](https://github.com/user-attachments/assets/fd9f7ac3-7653-40af-8bbf-14516dd7c781)
 
-3. Nhập thông tin demo cho các bảng
+### 3. Nhập thông tin demo cho các bảng
 - 3.1. Bảng Nguoi_Dung
 ![image](https://github.com/user-attachments/assets/c7093143-c48d-45e7-81ba-a21df04f7a07)
 
@@ -96,7 +90,7 @@ III. CSDL CỦA HỆ THỐNG ĐẶT VÉ XEM PHIM ONLINE
 - 3.5. Bảng Đặt_Vé
 ![Untitled](https://github.com/user-attachments/assets/5e184700-f420-405a-b568-4142aefe7a87)
 
-4. Viết TRIGGER cho Bảng Đặt_Vé
+### 4. Viết TRIGGER cho Bảng Đặt_Vé
 ![image](https://github.com/user-attachments/assets/7e6fc75a-8f7c-4327-87e7-1e7ea3804c3a)
 
 - 4.1. Sau khi hoàn thành việc tạo Trigger ta tiến hành kiểm tra như sau:
@@ -125,8 +119,7 @@ BEGIN
 END;
 ```
 
-
-5. Công dụng của Trigger trong đồ án **ĐẶT VÉ XEM PHIM ONLINE**
+### 5. Công dụng của Trigger trong đồ án **ĐẶT VÉ XEM PHIM ONLINE**
 - Trigger TR_CapNhatDoanhThu_Ve đã được xây dựng và áp dụng thành công trên bảng Đặt_Vé nhằm tự động cập nhật cột doanh_thu trong bảng Suất_Chiếu mỗi khi có thao tác thêm, xóa hoặc chỉnh sửa vé.
 
 - Việc sử dụng trigger giúp:
