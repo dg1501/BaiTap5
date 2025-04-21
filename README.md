@@ -47,6 +47,27 @@ III. CSDL CỦA HỆ THỐNG ĐẶT VÉ XEM PHIM ONLINE
 - 2.2.2. BẢNG *ĐẶT_VÉ* LIÊN KẾT VỚI BẢNG *SUẤT_CHIẾU* QUA THUỘC TÍNH **ma_chieu** ( tại BẢNG SUẤT_CHIẾU thì ma_chieu là khoá chính, ĐẶT_VÉ thì là khoá ngoại ).
 ![image](https://github.com/user-attachments/assets/53136558-ddda-4801-b3e4-19eefefbc770)
 
-## Bài Làm:
-1. 
+3. THIẾT LẬP RÀNG BUỘC CK CHO CÁC THUỘC TÍNH TRONG BẢNG
+- 3.1. BẢNG *Suất_Chiếu*
 
+- 3.2. BẢNG *Đặt_Vé*
+
+
+# B. Nội dung Bài tập 05:
+1. Dựa trên cơ sở là csdl của Đồ án
+2. Tìm cách bổ xung thêm 1 (hoặc vài) trường phi chuẩn
+   (là trường tính toán đc, nhưng thêm vào thì ok hơn,
+    ok hơn theo 1 logic nào đó, vd ok hơn về speed)
+   => Nêu rõ logic này!
+3. Viết trigger cho 1 bảng nào đó, 
+   mà có sử dụng trường phi chuẩn này,
+   nhằm đạt được 1 vài mục tiêu nào đó.
+   => Nêu rõ các mục tiêu 
+4. Nhập dữ liệu có kiểm soát, 
+   nhằm để test sự hiệu quả của việc trigger auto run.
+5. Kết luận về Trigger đã giúp gì cho đồ án của em.
+
+## BÀI LÀM
+### Bổ xung thêm 1 (hoặc vài) trường phi chuẩn.
+I. Khái niệm trường phi chuẩn: Là trường có thể tính toán ra được từ các trường khác, nhưng bạn vẫn chủ động lưu nó vào bảng để tăng tốc truy vấn hoặc phục vụ một mục đích cụ thể.
+III. Thêm trường phi chuẩn cho bảng **Suất_Chiếu**
