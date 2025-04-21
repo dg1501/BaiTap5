@@ -97,5 +97,44 @@ III. CSDL CỦA HỆ THỐNG ĐẶT VÉ XEM PHIM ONLINE
 ![Untitled](https://github.com/user-attachments/assets/5e184700-f420-405a-b568-4142aefe7a87)
 
 4. Viết TRIGGER cho Bảng Đặt_Vé
+![image](https://github.com/user-attachments/assets/7e6fc75a-8f7c-4327-87e7-1e7ea3804c3a)
+
+- 4.1. Sau khi hoàn thành việc tạo Trigger ta tiến hành kiểm tra như sau:
++ Ban đầu ta có trường doanh thu ở bảng Suất_Chiếu là giá trị NULL
+![Untitled](https://github.com/user-attachments/assets/b029755c-d1d9-4a14-ac1b-f72fece6b108)
+
++ Kết quả đạt được khi thay đổi dữ liệu ở bảng Đặt_Vé
+![Untitled](https://github.com/user-attachments/assets/325e3aff-ef2a-4493-9e7e-ef0426caffc9)
+
+- 4.2. CODE
+``` 
+CREATE TRIGGER TR_CapNhatDoanhThu_Ve
+ON Đặt_Vé
+AFTER INSERT, DELETE, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE SC
+    SET SC.doanh_thu = ISNULL(SC.doanh_thu, 0) - ISNULL(D.tong_tien, 0)
+    FROM Suất_Chiếu SC
+    JOIN deleted D ON SC.ma_chieu = D.ma_chieu;
+    UPDATE SC
+    SET SC.doanh_thu = ISNULL(SC.doanh_thu, 0) + ISNULL(I.tong_tien, 0)
+    FROM Suất_Chiếu SC
+    JOIN inserted I ON SC.ma_chieu = I.ma_chieu;
+END;
+```
 
 
+5. Công dụng của Trigger trong đồ án **ĐẶT VÉ XEM PHIM ONLINE**
+- Trigger TR_CapNhatDoanhThu_Ve đã được xây dựng và áp dụng thành công trên bảng Đặt_Vé nhằm tự động cập nhật cột doanh_thu trong bảng Suất_Chiếu mỗi khi có thao tác thêm, xóa hoặc chỉnh sửa vé.
+
+- Việc sử dụng trigger giúp:
+
++ Tự động hóa quá trình tính toán doanh thu mà không cần người dùng can thiệp thủ công.
+
++ Đảm bảo tính toàn vẹn dữ liệu, tránh trường hợp doanh_thu bị sai lệch hoặc bỏ quên khi cập nhật vé.
+
++ Tăng hiệu quả và độ tin cậy trong quản lý hệ thống rạp chiếu phim.
+
+- Nhờ trigger này, hệ thống luôn phản ánh doanh thu thực tế của từng suất chiếu một cách chính xác và kịp thời, góp phần nâng cao chất lượng quản lý và hỗ trợ ra quyết định trong quá trình vận hành rạp phim.
