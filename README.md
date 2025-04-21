@@ -69,5 +69,16 @@ III. CSDL CỦA HỆ THỐNG ĐẶT VÉ XEM PHIM ONLINE
 
 ## BÀI LÀM
 ### Bổ xung thêm 1 (hoặc vài) trường phi chuẩn.
-I. Khái niệm trường phi chuẩn: Là trường có thể tính toán ra được từ các trường khác, nhưng bạn vẫn chủ động lưu nó vào bảng để tăng tốc truy vấn hoặc phục vụ một mục đích cụ thể.
-III. Thêm trường phi chuẩn cho bảng **Suất_Chiếu**
+1. Khái niệm trường phi chuẩn: Là trường có thể tính toán ra được từ các trường khác, nhưng bạn vẫn chủ động lưu nó vào bảng để tăng tốc truy vấn hoặc phục vụ một mục đích cụ thể.
+2. Thêm trường phi chuẩn cho bảng **Đặt_Vé**
+![image](https://github.com/user-attachments/assets/fd944a17-468e-40f5-a9b6-c8779bafba38)
+
+- 2.1. Tại sao lại thêm trường phi chuẩn giờ kết thúc? Tại vì khi đặt vé, chọn suất chiếu, hệ thống sẽ biết giờ bắt đầu chiếu và thời lượng phim -> Dễ dàng tính được giờ kết thúc:
++ giờ kết thúc = giờ bắt đầu chiếu + thời lượng phim.
++ Thay vì phải tính lại thủ công khi cần, ta lưu luôn trường giờ kết thúc để tiết kiệm thời gian truy vấn, dễ dàng lọc suất còn trống, tránh trùng lịch chiếu khi cần.
+
+- 2.2. Sử dụng lệnh để tiến hành thêm thay vì thêm thủ công.
+![Untitled](https://github.com/user-attachments/assets/f48fede4-8756-479e-83d1-3bb984511090)
+
+3. Viết Trigger cho bảng **Đặt_Vé**
+
