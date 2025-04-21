@@ -80,5 +80,11 @@ III. CSDL CỦA HỆ THỐNG ĐẶT VÉ XEM PHIM ONLINE
 - 2.2. Sử dụng lệnh để tiến hành thêm thay vì thêm thủ công.
 ![Untitled](https://github.com/user-attachments/assets/f48fede4-8756-479e-83d1-3bb984511090)
 
-3. Viết Trigger cho bảng **Đặt_Vé**
+3. Nhập thông tin demo cho các bảng
+- 3.1. Bảng Nguoi_Dung
+![image](https://github.com/user-attachments/assets/c7093143-c48d-45e7-81ba-a21df04f7a07)
 
+- 3.2. Bảng Phim
+![Untitled](https://github.com/user-attachments/assets/3ce31596-1406-4c4b-a6ab-5ab88f86d4b7)
+
+- 3.3. Bảng Rạp_Phim
